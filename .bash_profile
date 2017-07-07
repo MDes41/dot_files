@@ -93,7 +93,7 @@ alias bz='cd ~/Turing/side_projects/BelowZeroCryotherapy'
 alias pl='port installed'
 
 #check the network mac adress
-alias mac='ifconfig en0 | grep ether'
+alias macaddr='ifconfig en0 | grep ether'
 
 # command to see if bluetooth is down
 alias bts='ifconfig awdl0 | awk "/status/{print $2}"'
@@ -106,10 +106,17 @@ alias btu='sudo ifconfig awdl0 up'
 alias bz='cd ~/Turing/side_projects/BelowZeroCryotherapy'
 
 
+#view terminal history
+alias hist='history'
+#delete terminal history
+alias dhist='history -c'
+
+
 #List download history
 dh() { sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* 'select * from LSQuarantineEvent' | php -r 'date_default_timezone_set("America/Montreal"); foreach (explode("\n", file_get_contents("php://stdin")) as $l) { preg_match("/([0-9\\.]+)\\|(.*)\$/", $l, $re); echo date("Y-m-d H:i:s",strtotime("2000-01-01 19:00")+$re[1])."\t$re[2]\n"; }'; }
 #Delete download history
 deletedh() { sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* 'delete from LSQuarantineEvent'; }
+
 
 # command to change mac address
 macnew() { sudo ifconfig en0 ether '$@'; }
@@ -141,4 +148,37 @@ source /usr/local/etc/bash_completion.d/git-completion.bash
 # MacPorts Installer addition on 2017-04-29_at_23:29:37: adding an appropriate PATH variable for use with MacPorts.
 export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 # Finished adapting your PATH environment variable for use with MacPorts.
+
+
+
+function dl {
+	arg=`echo $1 | sed s,https://,http://,g`
+	echo $arg
+	TMPFILE=`mktemp`
+	curl $arg > $TMPFILE
+	mkdir $TMPDIR/mount
+	yes | hdiutil attach -noverify -nobrowse -mountpoint $TMPDIR/mount $TMPFILE
+	cp -r $TMPDIR/mount/*.app /Applications
+	hdiutil detach $TMPDIR/mount
+	rm -r $TMPDIR/mount
+	rm -r $TMPFILE
+}
+
+function salt {
+	ln -s "/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/subl
+} 
+
+function homebrew {
+	ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+}
+#install homebrew (homebrew)
+#install sublime (dl <link>)
+#install sublime command line tools (salt)
+#install git (brew install git)
+#install git hub(brew install hub)
+#install cli tools (sh -c "$(curl -fsSL https://raw.githubusercontent.com/guarinogabriel/mac-cli/master/mac-cli/tools/install)")
+
+
+#list all users
+#cat /etc/passwd
 
