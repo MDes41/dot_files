@@ -4,7 +4,10 @@ export NODE_PATH="/Users/mdesmarteau/npm-global/bin"
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
-export PS1="\[\e(B\e[m\]\[\e[1m\] ☯ 🐢  \[\e[2m\]\[\e[4m\]\[\e[4#7m\]𝓜 𝓐 𝓣 𝓣 𝔇 \[\e[24m\]\[\e[1m\]\[\033[0;31m\] ⪼  \[\033[0;35m\]\w\[\e[1m\]\[\033[0;31m\] ⋙ \[\033[1;33m\]\$(parse_git_branch)\[\e[1m\]\[\033[0;31m\] ⤖ \[\033[0;36m\]"
+export PS1="\[\e(B\e[m\]\[\e[1m\] ☯ 🐢  \[\e[2m\]\[\e[4m\]\[\e[4#7m\]𝓜 𝓐 𝓣 𝓣 𝔇 \[\e[24m\]\[\e[1m\]\[\033[0;31m\] ⪼  \[\033[0;35m\]\w\[\e[1m\]\[\033[0;31m\] ⋙  ⤖ \[\033[0;36m\]"
+
+# \[\033[1;33m\]\$(parse_git_branch)\[\e[1m\]\[\033[0;31m\]
+
 # \[\e[2m\]\[\e[4m\]\[\e[4#7m\]𝓜 𝓐 𝓣 𝓣 𝔇 \[\e[24m\]\[\e[1m\]\[\033[0;31m\]
 export CLICOLOR=1
 export LSCOLORS=ExFxBxDxCxegedabagacad
@@ -45,7 +48,6 @@ alias gs="git status"
 
 
 #alias for forder nav
-alias cd3="cd ~/Turing/rp3mod && la"
 alias cd4="cd ~/Turing/mod4 && la"
 alias cdp="cd ~/Turing/mod4/projects && la"
 alias cde="cd ~/Turing/mod4/class_exercises && la"
