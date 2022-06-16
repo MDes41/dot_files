@@ -16,4 +16,16 @@ export PROMPT='🥷  ${DIR} %F{010}$(parse_git_branch)%f 🐢 '
 RPROMPT='${DAY_OF_WEEK}${COMMA}${MONTH}${SLASH}${DAY}${SLASH}${YEAR}${TIME}'
 
 
-#Working for that commit dog
+#open folders
+alias docs='cd ~/Documents'
+alias desk='cd ~/Desktop'
+alias down='cd ~/Downloads'
+
+alias zsh='subl ~/.zshrc'
+
+#reload
+alias reload='source ~/.zshrc'
+
+
+# Sublime symlink
+#ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl
