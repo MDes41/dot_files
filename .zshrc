@@ -14,3 +14,6 @@ TIME=$'%F{015}%D{%l:%M%p}%f%'
 setopt PROMPT_SUBST
 export PROMPT='🥷  ${DIR} %F{010}$(parse_git_branch)%f 🐢 '
 RPROMPT='${DAY_OF_WEEK}${COMMA}${MONTH}${SLASH}${DAY}${SLASH}${YEAR}${TIME}'
+
+
+#Working for that commit dog
